@@ -1,4 +1,10 @@
-package chapter1;
+package chapter1_1;
+
+import algs4.In;
+import algs4.StdIn;
+import algs4.StdOut;
+
+import java.util.Arrays;
 
 /**
  * @author xxp
@@ -12,7 +18,7 @@ public class BinarySearch {
         int lo = 0;
         int hi = a.length - 1;
         while (lo <= hi) {
-            // 取整的方式 向下取整
+            // 取整的方式 向0取整
             int mid = lo + (hi - lo) / 2;
             if (key < a[mid]) {
                 hi = mid - 1;
@@ -28,14 +34,24 @@ public class BinarySearch {
     public static void main(String[] args) {
         int i = 3;
         int j = 2;
-        // 向下取整
-        System.out.println(i/j);
+        // 向0取整
+//        System.out.println(i/j);
 
         int i1 = 7;
         int j1 = 8;
-        // 向下取整
-        System.out.println(i1/j1);
-        
+        // 向0取整
+//        System.out.println(i1/j1);
+
+        int[] whitelist = In.readInts(args[0]);
+        Arrays.sort(whitelist);
+        while (!StdIn.isEmpty()) {
+            int key = StdIn.readInt();
+            if (rank(key, whitelist) < 0) {
+                StdOut.println(key);
+            }
+        }
+
+
     }
 
 }
